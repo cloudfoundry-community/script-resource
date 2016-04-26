@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "No `put` funtionality provided by script-resource!"
+exit 1
