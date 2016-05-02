@@ -1,0 +1,28 @@
+---
+# settings for the script-resource pipeline
+meta:
+  target: sw
+  url:    https://ci.vsphere.starkandwayne.com
+  name:   script
+
+  initial_version: 0.0.1
+
+  aws:
+    access_key: (( vault "secret/aws/cfcommunity:access" ))
+    secret_key: (( vault "secret/aws/cfcommunity:secret" ))
+
+  dockerhub:
+    email:    (( vault "secret/dockerhub:email" ))
+    username: (( vault "secret/dockerhub:username" ))
+    password: (( vault "secret/dockerhub:password" ))
+    repository: cfcommunity/script-resource
+
+  github:
+    owner: starkandwayne
+    repo:  script-resource
+    private_key:  (( vault "secret/pipelines/script-resource/github:private" ))
+    access_token: (( vault "secret/pipelines/script-resource/github:token" ))
+
+  slack:
+    webhook: (( vault "secret/pipelines/script-resource/slack:webhook" ))
+    channel: '#botspam'

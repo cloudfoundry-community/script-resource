@@ -1,9 +1,24 @@
-Slack notification sending resource
-===================================
+Script Resource
+===============
 
 Provide a script for tasks that doesn't rely on external git repo
 
-The separation of the pipeline definition from the scripts it relies on 
+The separation of the pipeline definition from the scripts it relies on can
+cause problems.  By putting the scripts directly in the pipeline, the
+following benefits can be realized:
+
+* Keeps the CI DRY.  If you have multiple repositories that use the same
+  pipeline, you don't have to put the script in all those repositories.
+
+* When testing branches that already exist, the script doesn't have to be
+  there already.
+
+* When updating the script, you don't have to push a change to the product
+  repository, so you avoid creating a new build when the product itself hasn't
+  changed.
+
+* Keeps the workflow all in one place.  You don't have to search through
+  multiple locations to see what a pipeline does.
 
 
 Source Configuration
@@ -25,12 +40,5 @@ changes to the script.
 
 ### `IN`: Provide the script
 
-Send message to Slack, with the configured parameters.
-
-#### Parameters
-
-Required:
-
-
-
-
+Writes the script to the destination directory using the given filename, and
+makes it executable.
