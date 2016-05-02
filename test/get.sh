@@ -119,7 +119,7 @@ SCRIPT
     exit 1
   fi
 
-  if [ ! -e "$dest/$name" ] ; then
+  if [ ! -x "$dest/$name" ] ; then
     echo >&2 "$dest/$name is not executable!"
     exit 1
   fi
