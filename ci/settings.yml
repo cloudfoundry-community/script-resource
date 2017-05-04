@@ -2,7 +2,7 @@
 # settings for the script-resource pipeline
 meta:
   target: sw
-  url:    https://ci.vsphere.starkandwayne.com
+  url:    https://ci.starkandwayne.com
   name:   script-resource
 
   initial_version: 0.0.1
@@ -18,7 +18,7 @@ meta:
     repository: cfcommunity/script-resource
 
   github:
-    owner: starkandwayne
+    owner: cloudfoundry-community
     repo:  script-resource
     private_key:  (( vault "secret/pipelines/script-resource/github:private" ))
     access_token: (( vault "secret/pipelines/script-resource/github:token" ))
